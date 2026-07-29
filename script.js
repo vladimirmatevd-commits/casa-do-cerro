@@ -3,21 +3,20 @@ const sections = Array.from(document.querySelectorAll('.menu-category'));
 
 document.documentElement.classList.add('has-js');
 
-// Hero topline: reveal each word letter-by-letter (typewriter effect), then keep it
-// visible forever and move on to the next word. Timing is computed here so that
-// each letter's CSS fade-in animation (see .topline-letter in style.css) starts at
-// the correct cumulative delay; the word/dot markup and final text are unchanged
-// for no-JS fallback.
+// Hero topline: reveal the entire line "COCKTAILS • SHISHAS • TAPAS • GOOD VIBES"
+// as ONE continuous typewriter sequence. Every letter and separator dot is treated
+// as a single character in the stream and advances by the same small step, so there
+// are no noticeable pauses between words or around the dots - it reads as one
+// uninterrupted left-to-right typing pass. Timing is computed here so that each
+// character's CSS fade-in animation (see .topline-letter/.topline-dot in style.css)
+// starts at the correct cumulative delay; the word/dot markup and final text are
+// unchanged for no-JS fallback.
 (() => {
   const topline = document.querySelector('.menu-topline');
   if (!topline) return;
 
   const items = Array.from(topline.children);
-  const letterStep = 50; // ms between letters, within the requested 40-60ms range
-  const letterDuration = 350; // ms for a single letter's fade-in animation
-  const gapAfterWord = 150; // ms pause after a word finishes before its dot appears
-  const dotDuration = 300; // ms for the dot's fade-in animation
-  const gapAfterDot = 150; // ms pause after the dot before the next word starts typing
+  const letterStep = 50; // ms between every character (letters and dots alike), within the requested 40-60ms range
 
   let delay = 250; // initial delay before the first letter starts
 
@@ -37,11 +36,9 @@ document.documentElement.classList.add('has-js');
       });
 
       item.appendChild(fragment);
-      // Move delay to when the last letter finishes fading in, plus the pause before the dot.
-      delay = delay - letterStep + letterDuration + gapAfterWord;
     } else if (item.classList.contains('topline-dot')) {
       item.style.animationDelay = `${delay}ms`;
-      delay += dotDuration + gapAfterDot;
+      delay += letterStep;
     }
   });
 })();
