@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(${h}, 45%, 30%)"/>
+      <stop offset="100%" stop-color="hsl(${h}, 60%, 45%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="34" fill="url(#g)"/>
+  <rect x="30" y="30" width="340" height="340" rx="30" fill="rgba(255,255,255,0.06)"/>
+  <rect x="48" y="48" width="304" height="304" rx="26" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="6"/>
+  <circle cx="160" cy="160" r="72" fill="rgba(255,255,255,0.08)"/>
+  <path d="M160 120h120v120H160z" fill="rgba(255,255,255,0.06)"/>
+  <path d="M120 216c28 18 70 18 98 0" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M148 160h52" stroke="rgba(255,255,255,0.3)" stroke-width="12" stroke-linecap="round"/>
+  <text x="200" y="368" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Arial,Helvetica,sans-serif" font-size="30" letter-spacing="1">Item ${i}</text>
+</svg>
