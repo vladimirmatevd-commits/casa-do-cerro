@@ -19,12 +19,14 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg);
 }
 
 body {
   min-height: 100vh;
   font-family: "Inter", "system-ui", "Arial", sans-serif;
   color: var(--text);
+  position: relative;
 }
 
 /* Dedicated fixed background layer, positioned/sized against the viewport
@@ -33,11 +35,19 @@ body {
    Using a real position: fixed element instead of the CSS
    background-attachment: fixed property avoids the well-known iOS
    Safari/Chrome (WebKit) bug where fixed + cover backgrounds render
-   missing or only partially (e.g. only the top-left corner visible). */
+   missing or only partially (e.g. only the top-left corner visible).
+   IMPORTANT: this layer intentionally does NOT use a negative z-index.
+   A position: fixed element with z-index: -1 is unreliably composited
+   by real iOS Safari during/after scrolling (it can be dropped from the
+   scroll compositing layer even though it renders fine in Blink-based
+   DevTools/emulation) and the page canvas shows through instead - which
+   renders solid black here because :root sets color-scheme: dark. Using
+   z-index: 0 on the layer and explicitly raising the real content above
+   it (see .site-header / .menu-page below) avoids that bug entirely. */
 .background-layer {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background-color: var(--bg);
   background-image: url("images/background.png");
   background-size: cover;
@@ -46,6 +56,8 @@ body {
 }
 
 .site-header {
+  position: relative;
+  z-index: 1;
   padding: 1.5rem 1.25rem 0;
   text-align: center;
 }
@@ -192,6 +204,8 @@ a.button {
 }
 
 .menu-page {
+  position: relative;
+  z-index: 1;
   padding: 3rem 1.25rem 4rem;
 }
 
