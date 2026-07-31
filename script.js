@@ -289,31 +289,4 @@ if (categoryLinks.length && sections.length) {
     modal.addEventListener('touchmove', onTouchMove, { passive: true });
     modal.addEventListener('touchend', onTouchEnd, { passive: true });
   })();
-
-  // PARALLAX BACKGROUND (subtle, performant)
-  (function setupParallax() {
-    const heroBg = document.querySelector('.hero-background');
-    if (!heroBg) return;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return; // disable for reduced motion
-
-    let lastScroll = window.scrollY;
-    let ticking = false;
-    const intensity = 0.18; // 18% slower (between 0.15 - 0.25)
-
-    function update() {
-      const scrollY = window.scrollY;
-      const delta = scrollY * intensity;
-      heroBg.style.transform = `translateY(${Math.round(delta)}px) scale(1.05)`;
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      lastScroll = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    }, { passive: true });
-  })();
 }
