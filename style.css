@@ -24,39 +24,25 @@ html {
 body {
   min-height: 100vh;
   font-family: "Inter", "system-ui", "Arial", sans-serif;
-  background-color: var(--bg);
-  background-image: url("images/background.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--text);
 }
 
-/* iOS Safari and Chrome (WebKit) do not reliably support
-   background-attachment: fixed combined with background-size: cover;
-   it causes the image to be missing or only partially rendered
-   (e.g. only the top-left corner visible). Use scroll attachment
-   on touch/mobile viewports so the same image still displays fully. */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-    /* With background-attachment: scroll, the sizing box for the
-       background is the full scrollable body (much taller than one
-       screen), so background-size: cover scales the image far larger
-       than the viewport and pushes the hookah artwork way below the
-       first screen. Size the background relative to the viewport
-       width instead (100vw) so the whole image is scaled to fit the
-       screen width and its true height is shown — this both fixes the
-       composition (hookah + texture both visible on the first screen)
-       and slightly reduces the zoom compared to the previous crop. */
-    background-size: 100vw auto;
-    /* Anchor to the top so the upper portion of the artwork, where
-       the hookah sits, stays within the first screen on shorter
-       mobile viewports; the image is nearly the same aspect ratio as
-       the viewport so cropping is minimal either way. */
-    background-position: center top;
-  }
+/* Dedicated fixed background layer, positioned/sized against the viewport
+   itself (not the scrollable body), so it always covers the full screen
+   with no dead black space, from the hero section down to the footer.
+   Using a real position: fixed element instead of the CSS
+   background-attachment: fixed property avoids the well-known iOS
+   Safari/Chrome (WebKit) bug where fixed + cover backgrounds render
+   missing or only partially (e.g. only the top-left corner visible). */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg);
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .site-header {
