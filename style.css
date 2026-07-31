@@ -26,7 +26,6 @@ body {
   min-height: 100vh;
   font-family: "Inter", "system-ui", "Arial", sans-serif;
   color: var(--text);
-  position: relative;
 }
 
 /* Dedicated fixed background layer, positioned/sized against the viewport
