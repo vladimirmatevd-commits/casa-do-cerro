@@ -115,7 +115,7 @@ a.button {
 
 .brand-logo {
   width: min(526px, 80%); /* increased by ~10% from 478px */
-  margin: 0 auto 1.75rem;
+  margin: 0 auto 1.2rem;
   opacity: 0;
   filter: drop-shadow(0 0 20px rgba(215, 181, 99, 0.35));
   animation: logoIntro 1.4s ease forwards;
@@ -220,7 +220,7 @@ a.button {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.85;
-  max-width: 640px;
+  max-width: 755px;
   margin: 0 auto 1.75rem;
 }
 
