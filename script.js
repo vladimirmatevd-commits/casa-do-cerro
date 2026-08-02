@@ -294,7 +294,7 @@ if (categoryLinks.length && sections.length) {
 /* Back to Top button functionality */
 (function() {
   const backToTopBtn = document.getElementById('back-to-top');
-  const scrollThreshold = 400;
+  const scrollThreshold = 80;
 
   // Show/hide button based on scroll position
   const handleScroll = () => {
