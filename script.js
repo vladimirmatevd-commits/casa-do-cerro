@@ -290,3 +290,32 @@ if (categoryLinks.length && sections.length) {
     modal.addEventListener('touchend', onTouchEnd, { passive: true });
   })();
 }
+
+/* Back to Top button functionality */
+(function() {
+  const backToTopBtn = document.getElementById('back-to-top');
+  const scrollThreshold = 400;
+
+  // Show/hide button based on scroll position
+  const handleScroll = () => {
+    if (window.scrollY > scrollThreshold) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  };
+
+  // Scroll to top smoothly on click
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Listen for scroll events with passive flag for performance
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // Initial check in case page is already scrolled
+  handleScroll();
+})();
