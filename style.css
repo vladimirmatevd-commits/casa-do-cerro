@@ -114,7 +114,7 @@ a.button {
 }
 
 .brand-logo {
-  width: min(416px, 80%); /* increased by ~30% from 320px */
+  width: min(478px, 80%); /* increased by ~15% from 416px */
   margin: 0 auto 1.75rem;
   opacity: 0;
   filter: drop-shadow(0 0 20px rgba(215, 181, 99, 0.35));
@@ -383,7 +383,7 @@ a.button {
 
 .menu-category {
   max-width: 1120px;
-  margin: 0 auto 3rem;
+  margin: -10rem auto 3rem;
 }
 
 .category-header {
