@@ -530,6 +530,25 @@ html.has-js .menu-item.visible {
 }
 
 @media (max-width: 767px) {
+  /* Reduce space between logo and description by ~70px */
+  .site-header {
+    padding: 1.5rem 1.25rem 0.3rem;
+  }
+
+  .menu-intro {
+    margin: 0 auto 1rem;
+  }
+
+  /* Reduce space between description and gold tagline by ~25px */
+  .menu-intro p {
+    margin: 0 auto 1.1rem;
+  }
+
+  /* Keep tagline to buttons spacing almost the same */
+  .menu-topline {
+    margin: 1.6rem auto 1.8rem;
+  }
+
   .category-header {
     text-align: center;
     justify-items: center;
@@ -549,7 +568,7 @@ html.has-js .menu-item.visible {
     gap: 0.6rem; /* equal spacing between buttons (row + column) */
     overflow-x: visible; /* ensure no horizontal scroll */
     padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.6rem;
     border-bottom: none; /* keep visual balance on mobile */
   }
 
@@ -562,6 +581,11 @@ html.has-js .menu-item.visible {
     padding: 0.65rem 1.1rem;
     white-space: nowrap;
     gap: 0.35rem;
+  }
+
+  /* Move SIGNATURE DRINKS section up by ~100px */
+  .menu-category {
+    margin: -1.5rem auto 3rem;
   }
 
   /* Mobile: tighten each menu card so it wraps closely around its content.
