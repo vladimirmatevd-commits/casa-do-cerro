@@ -28,30 +28,27 @@ body {
   color: var(--text);
 }
 
-/* Dedicated fixed background layer, positioned/sized against the viewport
-   itself (not the scrollable body), so it always covers the full screen
-   with no dead black space, from the hero section down to the footer.
-   Using a real position: fixed element instead of the CSS
-   background-attachment: fixed property avoids the well-known iOS
-   Safari/Chrome (WebKit) bug where fixed + cover backgrounds render
-   missing or only partially (e.g. only the top-left corner visible).
-   IMPORTANT: this layer intentionally does NOT use a negative z-index.
-   A position: fixed element with z-index: -1 is unreliably composited
-   by real iOS Safari during/after scrolling (it can be dropped from the
-   scroll compositing layer even though it renders fine in Blink-based
-   DevTools/emulation) and the page canvas shows through instead - which
-   renders solid black here because :root sets color-scheme: dark. Using
-   z-index: 0 on the layer and explicitly raising the real content above
-   it (see .site-header / .menu-page below) avoids that bug entirely. */
+/* Dedicated fixed background layer with an img element.
+   Using object-fit: cover is more reliable than CSS background-image
+   on mobile browsers, especially iOS Safari and Android Chrome.
+   The img renders at 100vw x 100vh with object-fit handling the scaling.
+   z-index: -1 ensures the layer always stays behind all content.
+   overflow: hidden prevents any scrollbar artifacts. */
 .background-layer {
   position: fixed;
   inset: 0;
-  z-index: 0;
-  background-color: var(--bg);
-  background-image: url("images/background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .site-header {
