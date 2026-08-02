@@ -542,6 +542,7 @@ html.has-js .menu-item.visible {
   /* Reduce space between description and gold tagline by ~25px */
   .menu-intro p {
     margin: 0 auto 1.1rem;
+    max-width: 95%;
   }
 
   /* Keep tagline to buttons spacing almost the same */
