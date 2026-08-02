@@ -202,12 +202,12 @@ a.button {
 .menu-page {
   position: relative;
   z-index: 1;
-  padding: 1.5rem 1.25rem 4rem;
+  padding: 3rem 1.25rem 4rem;
 }
 
 .menu-intro {
   max-width: min(85%, 840px);
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 2.5rem;
   text-align: center;
   padding: 1.6rem 1.2rem;
   background: none;
@@ -383,7 +383,7 @@ a.button {
 
 .menu-category {
   max-width: 1120px;
-  margin: -15rem auto 3rem;
+  margin: -10rem auto 3rem;
 }
 
 .category-header {
@@ -583,9 +583,9 @@ html.has-js .menu-item.visible {
     gap: 0.35rem;
   }
 
-  /* Move SIGNATURE DRINKS section up significantly */
+  /* Move SIGNATURE DRINKS section up by ~100px */
   .menu-category {
-    margin: -6rem auto 3rem;
+    margin: -1.5rem auto 3rem;
   }
 
   /* Mobile: tighten each menu card so it wraps closely around its content.
