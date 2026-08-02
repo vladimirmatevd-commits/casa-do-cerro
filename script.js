@@ -102,7 +102,7 @@ if (categoryLinks.length && sections.length) {
       },
       {
         root: null,
-        rootMargin: '150px 0px -25% 0px',
+        rootMargin: '500px 0px -25% 0px',
         threshold: 0.25,
       }
     );

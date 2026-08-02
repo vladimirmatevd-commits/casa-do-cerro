@@ -383,7 +383,7 @@ a.button {
 
 .menu-category {
   max-width: 1120px;
-  margin: -10rem auto 3rem;
+  margin: 0 auto 3rem;
 }
 
 .category-header {
@@ -581,11 +581,6 @@ html.has-js .menu-item.visible {
     padding: 0.65rem 1.1rem;
     white-space: nowrap;
     gap: 0.35rem;
-  }
-
-  /* Move SIGNATURE DRINKS section up by ~100px */
-  .menu-category {
-    margin: -1.5rem auto 3rem;
   }
 
   /* Mobile: tighten each menu card so it wraps closely around its content.
