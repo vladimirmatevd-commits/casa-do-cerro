@@ -114,7 +114,7 @@ a.button {
 }
 
 .brand-logo {
-  width: min(478px, 80%); /* increased by ~15% from 416px */
+  width: min(526px, 80%); /* increased by ~10% from 478px */
   margin: 0 auto 1.75rem;
   opacity: 0;
   filter: drop-shadow(0 0 20px rgba(215, 181, 99, 0.35));
